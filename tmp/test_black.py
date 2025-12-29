@@ -62,3 +62,4 @@ def inject_notepad_plus():
 
 if __name__ == "__main__":
     inject_notepad_plus()
+
