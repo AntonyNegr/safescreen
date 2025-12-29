@@ -5,7 +5,6 @@ import ctypes
 import struct
 import sys
 
-# Флаг: 1 = WDA_MONITOR (Окно становится черным для скриншотов)
 WDA_MONITOR = 0x01
 
 
