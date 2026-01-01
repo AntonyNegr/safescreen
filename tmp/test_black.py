@@ -9,7 +9,6 @@ WDA_MONITOR = 0x01
 
 
 def inject_notepad_plus():
-    # Notepad++ всегда имеет этот класс окна
     TARGET_CLASS = "Notepad++"
 
     print(f"[*] Ищу окно программы {TARGET_CLASS}...")

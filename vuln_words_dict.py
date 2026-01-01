@@ -7,15 +7,10 @@ class SynchronizedOCRDLP:
             "ru": {1: [], 2: [], 3: [], 4: [], 5: []},
             "en": {1: [], 2: [], 3: [], 4: [], 5: []}
         }
-
-        # Единая точка входа для заполнения баз
         self._populate_synchronized_db()
-
-        # Расширение вариациями (падежи, опечатки)
         self.expand_dictionary()
 
     def _add_sync_concept(self, level, ru_synonyms, en_synonyms):
-        # Добавляем в сырые списки (морфология применится позже)
         self.dictionary["ru"][level].extend(ru_synonyms)
         self.dictionary["en"][level].extend(en_synonyms)
 
@@ -150,32 +145,32 @@ class SynchronizedOCRDLP:
         root = word
 
         # --- СУЩЕСТВИТЕЛЬНЫЕ ---
-        if word.endswith("а"):  # Виза
+        if word.endswith("а"):
             root = word[:-1]
             forms.update(
                 [root + "ы", root + "е", root + "у", root + "ой", root + "ою", root + "ам", root + "ами", root + "ах"])
-        elif word.endswith("я"):  # Копия
+        elif word.endswith("я"):
             root = word[:-1]
             forms.update([root + "и", root + "е", root + "ю", root + "ей", root + "ям", root + "ями", root + "ях"])
-        elif word.endswith("ь"):  # Пароль
+        elif word.endswith("ь"):
             root = word[:-1]
             forms.update(
                 [root + "я", root + "ю", root + "ем", root + "е", root + "и", root + "ей", root + "ям", root + "ями",
                  root + "ях"])
-        elif word.endswith("о") or word.endswith("е"):  # Сальдо
+        elif word.endswith("о") or word.endswith("е"):
             root = word[:-1]
             forms.update([root + "а", root + "у", root + "ом", root + "а", root + "ам", root + "ами", root + "ах"])
 
         # --- ПРИЛАГАТЕЛЬНЫЕ ---
-        elif word.endswith("ый") or word.endswith("ий"):  # Секретный
+        elif word.endswith("ый") or word.endswith("ий"):
             root = word[:-2]
             forms.update([root + "ого", root + "ому", root + "ым", root + "ом", root + "ые", root + "ых", root + "ыми"])
-        elif word.endswith("ая"):  # Служебная
+        elif word.endswith("ая"):
             root = word[:-2]
             forms.update([root + "ой", root + "ую", root + "ые", root + "ых", root + "ым", root + "ыми"])
 
         # --- МУЖСКОЙ РОД ---
-        else:  # Договор
+        else:
             forms.update(
                 [word + "а", word + "у", word + "ом", word + "е", word + "ы", word + "ов", word + "ам", word + "ами",
                  word + "ах"])
