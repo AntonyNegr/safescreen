@@ -1,0 +1,17 @@
+# Python compiled files
+__pycache__/
+*.pyc
+
+# Virtual Environments
+venv/
+env/
+
+# Project Data
+HACKER_LOOT/
+HACKER_SERVER_STORAGE/
+LEAKED_DATA/
+
+# IDE settings (VS Code, PyCharm)
+.vscode/
+.idea/
+*.swp
